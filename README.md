@@ -1,4 +1,6 @@
 # Beats
+[![Build Status](https://www.travis-ci.com/stevearc/Beats.svg?branch=master)](https://travis-ci.com/github/stevearc/Beats)
+
 Supercollider quark for easy drum patterns
 
 # TODO

@@ -1,0 +1,8 @@
+language: minimal
+dist: focal
+before_install:
+  - sudo apt-get install -y supercollider sc3-plugins 
+env:
+  - QT_QPA_PLATFORM=minimal
+script:
+  - ./run_tests.sh

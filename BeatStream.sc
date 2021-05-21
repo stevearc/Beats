@@ -333,7 +333,7 @@ BeatRepeatStream {
     var path = paths.wrapAt(context.iteration);
     var ret;
     if (context.iteration < (paths.size - 1)) {
-      context.markHasMoreIteration
+      context.markHasMoreIterations
     };
     context.increaseLevel;
     ret = BeatStream.nextFromList(path, index, context);
