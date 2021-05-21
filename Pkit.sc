@@ -50,10 +50,7 @@ Pkit : Pattern {
       };
       charkit = charmap[char];
       if (charkit.notNil) {
-        streampairs = charkit.copy;
-        forBy (1, streampairs.size - 1, 2) { |i|
-          streampairs.put(i, streampairs[i].asStream);
-        };
+        streampairs = this.prGetStreamPairs(char);
         forBy (0, streampairs.size - 1, 2) { |i|
           var name = streampairs[i];
           var stream = streampairs[i+1];
@@ -73,9 +70,23 @@ Pkit : Pattern {
           };
         };
       };
-      // TODO FIXME we'll always just use the first value from these patterns???
       inevent = event.yield;
     }
+  }
+
+  prGetStreamPairs {|char|
+    var charkit = charmap[char];
+    if (charkit.isNil) {
+      ^#[];
+    };
+    if (charStreams[char].isNil) {
+      var streampairs = charkit.copy;
+      forBy (1, streampairs.size - 1, 2) { |i|
+        streampairs.put(i, Pn(streampairs[i]).asStream);
+      };
+      charStreams[char] = streampairs;
+    };
+    ^charStreams[char];
   }
 }
 
